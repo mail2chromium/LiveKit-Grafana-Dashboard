@@ -29,7 +29,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -118,7 +118,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -207,7 +207,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -329,7 +329,7 @@
       },
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -497,7 +497,7 @@
       },
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -631,7 +631,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -752,7 +752,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_publish_counter{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Audio Publishers",
@@ -761,7 +761,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_publish_counter{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Video Publishers",
@@ -774,7 +774,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -863,7 +863,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -983,7 +983,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_published_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Published Tracks",
@@ -992,7 +992,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_published_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Video Published Tracks",
@@ -1005,7 +1005,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1125,7 +1125,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_subscribed_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Subscribed Tracks",
@@ -1134,7 +1134,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ddmi2b881s000e"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "livekit_track_subscribed_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"livekit\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Video Subscribed Tracks",
@@ -1147,7 +1147,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1236,7 +1236,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ddmi2b881s000e"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1300,7 +1300,27 @@
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "default",
+          "value": "default"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "DS_PROMETHEUS",
+        "label": "Datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
   },
   "time": {
     "from": "now-2d",
