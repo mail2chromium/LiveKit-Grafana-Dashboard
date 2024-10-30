@@ -446,7 +446,7 @@
       },
       "targets": [
         {
-          "expr": "process_cpu_seconds_total{instance=\"$instance\", job=\"$job\"}",
+          "expr": "process_cpu_seconds_total{instance=~\"$instance\", job=~\"$job\"}",
           "legendFormat": "LiveKit CPU Time",
           "refId": "A"
         },
@@ -615,7 +615,7 @@
       "pluginVersion": "11.1.0-70958",
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{instance=\"$instance\", job=\"$job\"}",
+          "expr": "process_resident_memory_bytes{instance=~\"$instance\", job=~\"$job\"}",
           "legendFormat": "LiveKit Memory Usage",
           "refId": "A"
         },
@@ -754,7 +754,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=~\"$instance\", job=~\"$job\", kind=~\"AUDIO\", node_id=~\"$node_id\", node_type=~\"SERVER\", state=~\"success\"}",
           "legendFormat": "Audio Publishers",
           "refId": "A"
         },
@@ -763,7 +763,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=~\"$instance\", job=~\"$job\", kind=~\"VIDEO\", node_id=~\"$node_id\", node_type=~\"SERVER\", state=~\"success\"}",
           "legendFormat": "Video Publishers",
           "refId": "B"
         }
@@ -852,7 +852,7 @@
       },
       "targets": [
         {
-          "expr": "livekit_track_subscribe_counter{state=\"success\"}",
+          "expr": "livekit_track_subscribe_counter{state=~\"success\"}",
           "legendFormat": "{{job}}",
           "refId": "A"
         }
@@ -985,7 +985,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=~\"$instance\", job=~\"$job\", kind=~\"AUDIO\", node_id=~\"$node_id\", node_type=~\"SERVER\"}",
           "legendFormat": "Audio Published Tracks",
           "refId": "A"
         },
@@ -994,7 +994,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=~\"$instance\", job=~\"$job\", kind=~\"VIDEO\", node_id=~\"$node_id\", node_type=~\"SERVER\"}",
           "legendFormat": "Video Published Tracks",
           "refId": "B"
         }
@@ -1127,7 +1127,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=~\"$instance\", job=~\"$job\", kind=~\"AUDIO\", node_id=~\"$node_id\", node_type=~\"SERVER\"}",
           "legendFormat": "Audio Subscribed Tracks",
           "refId": "A"
         },
@@ -1136,7 +1136,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=~\"$instance\", job=~\"$job\", kind=~\"VIDEO\", node_id=~\"$node_id\", node_type=~\"SERVER\"}",
           "legendFormat": "Video Subscribed Tracks",
           "refId": "B"
         }
