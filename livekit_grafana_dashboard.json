@@ -754,7 +754,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Audio Publishers",
           "refId": "A"
         },
@@ -763,7 +763,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Video Publishers",
           "refId": "B"
         }
@@ -985,7 +985,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Published Tracks",
           "refId": "A"
         },
@@ -994,7 +994,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
           "legendFormat": "Video Published Tracks",
           "refId": "B"
         }
@@ -1127,7 +1127,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Subscribed Tracks",
           "refId": "A"
         },
@@ -1136,7 +1136,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"$node_id\", node_type=\"SERVER\"}",
           "legendFormat": "Video Subscribed Tracks",
           "refId": "B"
         }
@@ -1364,7 +1364,37 @@
         "options": [],
         "query": {
           "query": "label_values(livekit_room_total, job)",
-          "refId": "rometheus-job-Variable-Query"
+          "refId": "Prometheus-job-Variable-Query"
+        },
+        "refresh": 2,
+        "refresh_on_load": false,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allFormat": "regex wildcard",
+        "allValue": "",
+        "current": {},
+        "datasource": {
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "",
+        "hide": 0,
+        "hideLabel": false,
+        "includeAll": true,
+        "label": "Node",
+        "multi": true,
+        "multiFormat": "regex values",
+        "name": "node_id",
+        "options": [],
+        "query": {
+          "query": "label_values(livekit_room_total, node_id)",
+          "refId": "Prometheus-job-Variable-Query"
         },
         "refresh": 2,
         "refresh_on_load": false,
