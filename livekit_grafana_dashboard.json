@@ -446,7 +446,7 @@
       },
       "targets": [
         {
-          "expr": "process_cpu_seconds_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\"}",
+          "expr": "process_cpu_seconds_total{instance=\"$instance\", job=\"$job\"}",
           "legendFormat": "LiveKit CPU Time",
           "refId": "A"
         },
@@ -615,7 +615,7 @@
       "pluginVersion": "11.1.0-70958",
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\"}",
+          "expr": "process_resident_memory_bytes{instance=\"$instance\", job=\"$job\"}",
           "legendFormat": "LiveKit Memory Usage",
           "refId": "A"
         },
@@ -754,7 +754,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Audio Publishers",
           "refId": "A"
         },
@@ -763,7 +763,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_publish_counter{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
+          "expr": "livekit_track_publish_counter{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\", state=\"success\"}",
           "legendFormat": "Video Publishers",
           "refId": "B"
         }
@@ -985,7 +985,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Published Tracks",
           "refId": "A"
         },
@@ -994,7 +994,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_published_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_published_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Video Published Tracks",
           "refId": "B"
         }
@@ -1127,7 +1127,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"AUDIO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Audio Subscribed Tracks",
           "refId": "A"
         },
@@ -1136,7 +1136,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "livekit_track_subscribed_total{instance=\"monitor.livekit-dashboard.dev:443\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
+          "expr": "livekit_track_subscribed_total{instance=\"$instance\", job=\"$job\", kind=\"VIDEO\", node_id=\"ND_k8YVijG2ARvm\", node_type=\"SERVER\"}",
           "legendFormat": "Video Subscribed Tracks",
           "refId": "B"
         }
@@ -1329,6 +1329,32 @@
         },
         "definition": "",
         "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "query": "label_values(livekit_room_total, instance)",
+          "refId": "Prometheus-instance-Variable-Query"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allFormat": "regex wildcard",
+        "allValue": "",
+        "current": {},
+        "datasource": {
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "",
+        "hide": 0,
         "hideLabel": false,
         "includeAll": true,
         "label": "Job",
@@ -1337,7 +1363,7 @@
         "name": "job",
         "options": [],
         "query": {
-          "query": "label_values(livekit_room_total,job)",
+          "query": "label_values(livekit_room_total, job)",
           "refId": "rometheus-job-Variable-Query"
         },
         "refresh": 2,
